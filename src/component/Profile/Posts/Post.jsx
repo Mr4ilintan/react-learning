@@ -4,9 +4,9 @@ import post from './Post.module.css'
 const Post = (props) => {
 
     return <div className={post.motto}>
-        <img src="https://i.redd.it/567ev5bc79951.jpg" />  {props.message} {props.sabaka}
+        <img src="https://i.redd.it/567ev5bc79951.jpg" />  {props.message}
         <div className={post.item}>
-            <span>like</span>
+<span>likes {props.likesCount}</span>
         </div>
     </div>
 }
