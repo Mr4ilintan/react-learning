@@ -4,23 +4,30 @@ import Post from './Posts/Post'
 import dog from './dog.jpg'
 
 
-const Profile = () => {
+const Profile = (props) => {
+      let postElements = props.state.posts.map(post => <Post message={post.message} likesCount={post.likesCount}/>)
 
-    let postData = [
-        {id: 1, message: "Yo", likesCount: 12},
-        {id: 2, message: "First message", likesCount:18},
-       
-      ]
+      let addPost = () => {
+        let text = newPostElement.current.value;
+        props.addPost(text);
+        newPostElement.current.value = '';
+      }
 
-      let postElements = postData.map(post => <Post message={post.message} likesCount={post.likesCount}/>)
+      let newPostElement = React.createRef();
 
     return <div className={prof.content}>
         <img src={dog} />
+        <h3>My posts</h3>
+        <div>
+            <div>
+                <textarea ref={newPostElement}></textarea>
+            </div>
+            <div>
+                <button onClick={ addPost } >Add post</button>
+            </div>
+        </div>
         <div className='posts'>
             {postElements}
-
-            {/* <Post message={postData[0].message} likesCount={postData[0].likesCount} />
-            <Post message={postData[1].message} likesCount={postData[1].likesCount} /> */}
         </div>
 
     </div>
