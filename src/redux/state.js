@@ -27,13 +27,13 @@ let state = {
 }
 
 
-export let addPost = (newPostElement) => {
+export let addPost = (postMessage) => { 
   let newPost = {
     id:3,
-    message: newPostElement,
+    message: postMessage,
     likesCount: 0
   }
-  state.profilePage.posts.push()
+  state.profilePage.posts.push(newPost)
   rerenderEntireTree(newPost);
 }
 
